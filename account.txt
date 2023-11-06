@@ -1,0 +1,2 @@
+vikrimg:passwd
+admin:admin

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-  <title>Login</title>
+  <title>UTS AP3 VIKRI</title>
 </head>
 
 <body>
@@ -28,12 +28,12 @@
 					</form>
 
 
-			<!-- <div class="social-login">
+			<div class="social-login">
 				<h3>log in via</h3>
 				<div class="social-icons">
-                    <button class="GoogleButton">Google</button>
+                    <button class="GoogleButton" onclick=googleLoginHandler()>Google</button>
 				</div>
-			</div> -->
+			</div>
 		</div>
 
 
@@ -49,6 +49,10 @@
 </body>
 
 <script>
+	// function alert(text) {
+	// 	alert(text);
+	// }
+
 	async function loginHandler(event) {
 		event.preventDefault();
   		const username = document.getElementById("username").value;
@@ -73,7 +77,7 @@
     		if (response.ok) {
       			// Permintaan berhasil, Anda dapat menangani respons di sini
       			const responseData = await response.json();
-      			console.log(responseData);
+      			window.alert(responseData.message);
    	 		} else {
       			// Permintaan gagal, Anda dapat menangani kesalahan di sini
       			console.error('Gagal melakukan permintaan ke server.');
@@ -83,7 +87,13 @@
   		}
 	}
 
-	// async function googleLoginHandler()
+	async function googleLoginHandler(){
+		try {
+			window.location.href = '/auth/google';
+		} catch (error) {
+			console.log(error);
+		}
+	}
 </script>
 </html>
 

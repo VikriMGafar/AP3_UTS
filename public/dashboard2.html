@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+      <html lang="en">
+      
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="/dashboard.css">
+      
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          }
+      
+          .container {
+            width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+          }
+      
+          .info {
+            background-color: aliceblue;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            /* margin-top: 10px;
+            margin-bottom: 10px; */
+          }
+      
+      
+          .profilePic {
+            width: 100;
+            border-radius: 50%;
+          }
+          p{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 400;
+          }
+          .logoutButton {
+            padding: 5px 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            /* margin-bottom: 20px; */
+          }
+        </style>
+      </head>
+      
+      <body>
+        <div class="container">
+          <h1 style="margin: 0;">Dashboard</h1>
+          <div class="info">
+            <p style="margin: 0;">${username}</p>
+            <button class="logoutButton" onclick="logout()">Log Out</button>
+          </div>
+        </div>
+      
+      </body>
+      <script>
+        function logout() {
+          try {
+            window.location.href = '/logout';
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      </script>
+      
+      </html>
