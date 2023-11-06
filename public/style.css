@@ -11,6 +11,14 @@ body {
 	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
 }
 
+/* .lockIcon{ */
+    /* opacity: 50%;
+    color: #f0f0f0; */
+    /* width: 80%;
+    height: 80%; */
+  /* } */
+
+
 .container {
 	display: flex;
 	align-items: center;
@@ -29,6 +37,7 @@ body {
 .screen__content {
 	z-index: 1;
 	position: relative;	
+	border-radius: 100px;
 	height: 100%;
 }
 

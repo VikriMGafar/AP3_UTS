@@ -11,27 +11,32 @@
   <div class="container">
 	<div class="screen">
 		<div class="screen__content">
+
 			<form class="login">
 				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email">
+				  <!-- <i class="login__icon fas fa-user"></i> -->
+				  <input type="text" id="username" name="username" class="login__input" placeholder="User name / Email">
 				</div>
 				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password">
+				  <!-- <i class="fa fa-lock icon"></i> -->
+				  <input type="password" id="password" name="password" class="login__input" placeholder="Password">
 				</div>
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
+				<button class="button login__submit" onclick=loginHandler(event)>Log In</button>
+					<!-- <span class="button__text">Log In</span>
+						<i class="button__icon fas fa-chevron-right"></i> -->
+					<!-- </button> -->
+					</form>
+
+
+			<!-- <div class="social-login">
 				<h3>log in via</h3>
 				<div class="social-icons">
                     <button class="GoogleButton">Google</button>
 				</div>
-			</div>
+			</div> -->
 		</div>
+
+
 		<div class="screen__background">
 			<span class="screen__background__shape screen__background__shape4"></span>
 			<span class="screen__background__shape screen__background__shape3"></span>		
@@ -42,6 +47,44 @@
 </div>
     
 </body>
+
+<script>
+	async function loginHandler(event) {
+		event.preventDefault();
+  		const username = document.getElementById("username").value;
+  		const password = document.getElementById("password").value;
+
+  		const data = { 
+			username: username,
+			password: password
+		};
+		
+
+		console.log(data);
+		try {
+    		const response = await fetch('http://localhost:3000/signin', {
+     	 		method: 'POST',
+      			headers: {
+        			'Content-Type': 'application/json' // Atur tipe konten sebagai JSON
+      			},
+      			body: JSON.stringify(data) // Kirim data dalam bentuk JSON
+    		});
+
+    		if (response.ok) {
+      			// Permintaan berhasil, Anda dapat menangani respons di sini
+      			const responseData = await response.json();
+      			console.log(responseData);
+   	 		} else {
+      			// Permintaan gagal, Anda dapat menangani kesalahan di sini
+      			console.error('Gagal melakukan permintaan ke server.');
+    		}
+  		} catch (error) {
+   			console.error('Terjadi kesalahan:', error);
+  		}
+	}
+
+	// async function googleLoginHandler()
+</script>
 </html>
 
  
